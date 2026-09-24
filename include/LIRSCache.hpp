@@ -8,7 +8,7 @@
 
 // LIR (горячие, всегда в кеше) и HIR (холодные, могут быть вытеснены, но остаются без значений в стеке S)
 // S - стек всех блоков, Q - кандидаты на вытеснение
-// 
+//
 template <typename Key, typename Value>
 class LIRSCache : public ICache<Key, Value> {
 private:

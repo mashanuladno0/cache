@@ -55,11 +55,12 @@ public:
 
         auto victim_it = cache.begin();
         int max_next = findNextUse(victim_it->first);
-
-        for (auto it = std::next(cache.begin()); it != cache.end(); ++it) {
-            int next = findNextUse(it->first);
-            if (next == -1) { victim_it = it; break; }
-            if (next > max_next) { max_next = next; victim_it = it; }
+        if (max_next != -1) {
+            for (auto it = std::next(cache.begin()); it != cache.end(); ++it) {
+                int next = findNextUse(it->first);
+                if (next == -1) { victim_it = it; break; }
+                if (next > max_next) { max_next = next; victim_it = it; }
+            }
         }
         cache.erase(victim_it);
         cache.push_back({key, value});

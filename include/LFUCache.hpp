@@ -5,7 +5,6 @@
 #include <unordered_map>
 #include <iostream>
 
-
 template <typename Key, typename Value>
 class LFUCache : public ICache<Key, Value> {
 private:
@@ -38,10 +37,10 @@ private:
     }
 
 public:
-    explicit LFUCache(size_t cap) : capacity(cap) {} // explicit - явный вызов, передаем размер кэша и инициализируем  
+    explicit LFUCache(size_t cap) : capacity(cap) {} // explicit - явный вызов, передаем размер кэша и инициализируем
 
     bool get(const Key& key, Value& out) override {
-        auto it = registry.find(key); // auto - самоопределение типа 
+        auto it = registry.find(key); // auto - самоопределение типа
         if (it == registry.end()) return false;
 
         hit_count++;
