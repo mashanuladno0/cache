@@ -9,8 +9,6 @@
 #include <string>
 #include <iostream>
 
-// Фабрика: по имени алгоритма создаёт соответствующий кеш.
-// IDEAL сюда НЕ входит — он создаётся отдельно, потому что ему нужен trace.
 template <typename Key, typename Value>
 std::unique_ptr<ICache<Key, Value>>
 createCache(const std::string& algo, size_t capacity) {
